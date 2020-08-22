@@ -1,5 +1,6 @@
 import { all } from 'redux-saga/effects';
 import gameSaga from './gameSaga';
+import playerSaga from './playerSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -11,5 +12,6 @@ import gameSaga from './gameSaga';
 export default function* rootSaga() {
   yield all([
     gameSaga(),
+    playerSaga(),
   ]);
 }

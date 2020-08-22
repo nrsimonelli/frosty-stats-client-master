@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-
+    console.log('in stat router')
     const queryString = 'SELECT * FROM "players";';
     
     pool.query(queryString)

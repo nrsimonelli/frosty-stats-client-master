@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import game from './gameReducer';
+import player from './playerReducer';
 
 
 
@@ -7,6 +8,7 @@ import game from './gameReducer';
 // This is what we get when we use 'state' inside of 'mapStateToProps'
 const rootReducer = combineReducers({
   game,
+  player,
 });
 
 export default rootReducer;

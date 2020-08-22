@@ -20,11 +20,39 @@ class App extends Component {
     t2score: '',
     tb: '',
   }
+
+  componentDidMount() {
+    this.getPlayers();
+    console.log(this.props.player)
+  }
+
+  getPlayers = () => {
+    this.props.dispatch({
+      type: 'FETCH_PLAYERS'
+    })
+  }
   
   render(){
     return (
       <div className="root">
         <p>hello</p>
+        <table>
+          <thead>
+          <tr>
+            <td>Player id</td>
+            <td>Player Name</td>
+          </tr>
+          </thead>
+          <tbody>
+          {this.props.player.map(row => (
+            <tr key={row.id}>
+              <td>{row.id}</td>
+              <td>{row.name}</td>
+            </tr>
+          ))}
+          </tbody>
+        </table>
+
       </div>
     
 
@@ -32,4 +60,8 @@ class App extends Component {
   } // end render 
 } // end class
 
-export default connect()(App);
+const mapStateToProps = (state) => ({
+  player: state.player
+})
+
+export default connect(mapStateToProps)(App);
